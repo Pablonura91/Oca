@@ -1,6 +1,4 @@
 package Model;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Casilla {
     private CasillaType tipo;
