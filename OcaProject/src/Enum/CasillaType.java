@@ -1,5 +1,0 @@
-package Enum;
-
-public enum CasillaType {
-    NORMAL, PUENTE, OCA, MUERTE, POZO, POSADA, PRISION, DADOS, LABERINTO
-}
