@@ -6,7 +6,25 @@ public class Casilla {
     private CasillaType tipo;
 
     public enum CasillaType {
-        NORMAL, PUENTE, OCA, MUERTE, POZO, POSADA, PRISION, DADOS, LABERINTO
+        NORMAL("Normal"),
+        PUENTE("Puente"),
+        OCA("Oca"),
+        MUERTE("Muerte"),
+        POZO("Pozo"),
+        POSADA("Posada"),
+        PRISION("Prision"),
+        DADOS("Dados"),
+        LABERINTO("Laberinto");
+
+        private final String mensaje;
+
+        private CasillaType (String mensaje) {
+            this.mensaje = mensaje;
+        }
+
+        public String getMensaje() {
+            return this.mensaje;
+        }
     }
 
     public Casilla(CasillaType tipo){
