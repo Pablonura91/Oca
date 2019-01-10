@@ -1,5 +1,7 @@
+import Model.Tablero;
+
 public class Oca {
     public static void main(String[] args){
-        System.out.println("Hola");
+        Tablero tab = new Tablero();
     }
 }

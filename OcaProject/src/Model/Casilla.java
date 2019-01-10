@@ -12,6 +12,7 @@ public class Casilla {
         POSADA("Posada"),
         PRISION("Prision"),
         DADOS("Dados"),
+        META("Meta"),
         LABERINTO("Laberinto");
 
         private final String mensaje;
