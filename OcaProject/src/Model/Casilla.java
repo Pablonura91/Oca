@@ -18,7 +18,7 @@ public class Casilla {
 
         private final String mensaje;
 
-        private CasillaType (String mensaje) {
+        CasillaType (String mensaje) {
             this.mensaje = mensaje;
         }
 
