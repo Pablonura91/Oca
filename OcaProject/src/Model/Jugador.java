@@ -6,9 +6,11 @@ public class Jugador {
     private int numJugador;
     private int casilla;
     private int espera;
-    private Casilla.CasillaType consequencias;
 
-    public Jugador() {
+    public Jugador(String name) {
+        this.name = name;
+        this.espera = 0;
+        this.casilla = 0;
     }
 
 
@@ -45,11 +47,4 @@ public class Jugador {
         this.espera = espera;
     }
 
-    public int getConsequencias() {
-        return consequencias;
-    }
-
-    public void setConsequencias(Casilla.CasillaType consequencias) {
-        this.consequencias = consequencias;
-    }
 }
