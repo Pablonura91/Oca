@@ -20,10 +20,6 @@ public class Casilla {
         CasillaType (String mensaje) {
             this.mensaje = mensaje;
         }
-
-        public String getMensaje() {
-            return this.mensaje;
-        }
     }
 
     public Casilla(CasillaType tipo){

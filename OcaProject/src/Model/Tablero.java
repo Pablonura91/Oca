@@ -14,7 +14,7 @@ public class Tablero {
     private ArrayList<Jugador> jugadorArrayList = new ArrayList<>();
     private Casilla[] arrCasillas = new Casilla[64];
     private Scanner sc = new Scanner(System.in);
-    private int randomNum;
+    private int randomNumTirada;
     private String ganador;
     private int turno = 1;
 
@@ -36,21 +36,6 @@ public class Tablero {
         }while(numJugadores > 4 || numJugadores <=1);
     }
 
-    private void setPlayersName() {
-        for(int i=1; i <= numJugadores; i++){
-            System.out.println("Escribe el nombre del jugador " + i + " :");
-            String nombreJugador = sc.nextLine();
-            if (nombreJugador.length() >= 3) {
-                Jugador jugador = new Jugador(nombreJugador);
-
-                jugadorArrayList.add(jugador);
-            } else {
-                i--;
-                System.out.println("El nombre tiene que contener un minimo de 3 letras!");
-            }
-        }
-    }
-    
     private void initCasillas(){
         int[] casillasOca = {5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59};
         int[] casillasPuente = {6, 12};
@@ -78,6 +63,21 @@ public class Tablero {
         Casilla casilla = new Casilla(tipo);
         for (int iterator : tipoCasilla) {
             arrCasillas[iterator] = casilla;
+        }
+    }
+
+    private void setPlayersName() {
+        for(int i=1; i <= numJugadores; i++){
+            System.out.println("Escribe el nombre del jugador " + i + " :");
+            String nombreJugador = sc.nextLine();
+            if (nombreJugador.length() >= 3) {
+                Jugador jugador = new Jugador(nombreJugador);
+
+                jugadorArrayList.add(jugador);
+            } else {
+                i--;
+                System.out.println("El nombre tiene que contener un minimo de 3 letras!");
+            }
         }
     }
 
@@ -132,14 +132,14 @@ public class Tablero {
     }
 
     private void tirarDado(){
-        randomNum = ThreadLocalRandom.current().nextInt(1, 6 + 1);
-        System.out.println("Numero de la tirada "+randomNum);
+        randomNumTirada = ThreadLocalRandom.current().nextInt(1, 6 + 1);
+        System.out.println("Numero de la tirada "+ randomNumTirada);
     }
 
     private void checkCasilla(Jugador jugadorActual){
-        int tirada = jugadorActual.getCasilla() + randomNum;
+        int tirada = jugadorActual.getCasilla() + randomNumTirada;
         if (tirada > 63){
-            tirada = 63 - (/*randomNum - */(tirada - 63));
+            tirada = 63 - (/*randomNumTirada - */(tirada - 63));
         }
 
         CasillaType consequencia = arrCasillas[tirada].getCasillaType();
