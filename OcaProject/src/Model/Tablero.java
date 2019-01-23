@@ -75,11 +75,11 @@ public class Tablero {
         boolean endGame = false;
         do{
             Jugador jugadorActual = jugadorArrayList.get(turno - 1);
-            System.out.println("Estas en la casilla numero "+ jugadorActual.getCasilla());
-            System.out.println(jugadorActual.getName() +  " te toca tirar");
+            System.out.println("\n\n"+jugadorActual.getName());
+            System.out.println("Estas en la casilla numero "+ jugadorActual.getCasilla()+  " te toca tirar");
             if(!isEspera(jugadorActual)){
-                System.out.println("Escribe t para tirar dados");
-                String tirar = sc.nextLine();
+                //System.out.println("Escribe t para tirar dados");
+                //String tirar = sc.nextLine();
                 tirarDado();
                 checkCasilla(jugadorActual);
             } else {
@@ -92,11 +92,11 @@ public class Tablero {
             }
 
             if(!arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(OCA)){
-            if (turno == numJugadores){
-                turno = 1;
-            } else {
-                turno++;
-            }
+                if (turno == numJugadores){
+                    turno = 1;
+                } else {
+                    turno++;
+                }
             }
 
         }while(!endGame);
@@ -139,6 +139,9 @@ public class Tablero {
 
     public void checkCasilla(Jugador jugadorActual){
         int tirada = jugadorActual.getCasilla() + randomNum;
+        if (tirada > 63){
+            tirada = 63 - (/*randomNum - */(tirada - 63));
+        }
 
         CasillaType consequencia = arrCasillas[tirada].getCasillaType();
         switch (consequencia){
@@ -166,14 +169,18 @@ public class Tablero {
                 break;
             case OCA:
                 System.out.println("Has Caido en la Oca!");
-                if(arrCasillas[tirada + 4].getCasillaType().equals(OCA)){
-                    System.out.println("Avanzas hasta la casilla " + tirada);
-                    jugadorActual.setCasilla(tirada + 4);
+                if (tirada == 59){
+                    System.out.println("De Oca final has Ganado!");
                 } else {
-                    System.out.println("Avanzas hasta la casilla " + tirada);
-                    jugadorActual.setCasilla(tirada + 5);
+                    if (arrCasillas[tirada + 4].getCasillaType().equals(OCA)) {
+                        System.out.println("Avanzas hasta la casilla " + (tirada + 4));
+                        jugadorActual.setCasilla(tirada + 4);
+                    } else {
+                        System.out.println("Avanzas hasta la casilla " + (tirada + 5));
+                        jugadorActual.setCasilla(tirada + 5);
+                    }
+                    System.out.println("De oca a oca, TIRO PORQUE ME TOCA\n");
                 }
-                System.out.println("De oca a oca, TIRO PORQUE ME TOCA");
                 break;
             case MUERTE:
                 System.out.println("Has Caido en la Muerte!");
