@@ -40,13 +40,17 @@ public class Tablero {
         for(int i=1; i <= numJugadores; i++){
             System.out.println("Escribe el nombre del jugador " + i + " :");
             String nombreJugador = sc.nextLine();
-            Jugador jugador = new Jugador(nombreJugador);
+            if (nombreJugador.length() >= 3) {
+                Jugador jugador = new Jugador(nombreJugador);
 
-            jugadorArrayList.add(jugador);
+                jugadorArrayList.add(jugador);
+            } else {
+                i--;
+                System.out.println("El nombre tiene que contener un minimo de 3 letras!");
+            }
         }
     }
-
-
+    
     private void initCasillas(){
         int[] casillasOca = {5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59};
         int[] casillasPuente = {6, 12};
@@ -86,8 +90,8 @@ public class Tablero {
 
             //Comprueba que el jugador no tenga una espera para poder actuar
             if(!isEspera(jugadorActual)){
-                //System.out.println("Escribe t para tirar dados");
-                //String tirar = sc.nextLine();
+                System.out.println("Escribe t para tirar dados");
+                String tirar = sc.nextLine();
                 tirarDado();
                 checkCasilla(jugadorActual);
             } else {
