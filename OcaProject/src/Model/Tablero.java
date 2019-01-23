@@ -171,6 +171,7 @@ public class Tablero {
                 System.out.println("Has Caido en la Oca!");
                 if (tirada == 59){
                     System.out.println("De Oca final has Ganado!");
+                    tirada = 63;
                 } else {
                     if (arrCasillas[tirada + 4].getCasillaType().equals(OCA)) {
                         System.out.println("Avanzas hasta la casilla " + (tirada + 4));
