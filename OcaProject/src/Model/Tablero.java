@@ -99,7 +99,7 @@ public class Tablero {
                 jugadorActual.setEspera(jugadorActual.getEspera()-1);
             }
 
-            if(jugadorActual.getCasilla() == 63){
+            if(arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(META)){
                 ganador = jugadorActual.getName();
                 endGame = true;
             }
@@ -138,7 +138,7 @@ public class Tablero {
 
     private void checkCasilla(Jugador jugadorActual){
         int tirada = jugadorActual.getCasilla() + randomNumTirada;
-        if (tirada > 63){
+        if (arrCasillas[tirada].getCasillaType().equals(META)){
             tirada = 63 - (/*randomNumTirada - */(tirada - 63));
         }
 

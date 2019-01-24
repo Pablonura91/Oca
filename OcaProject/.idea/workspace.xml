@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e12ef7bb-d5a4-4d36-9322-9c922da1a885" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Model/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Casilla.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oca.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,12 +20,13 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="609" />
+          <entry key="JAVA" value="634" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -51,16 +50,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Tablero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="170" column="30" selection-start-line="170" selection-start-column="30" selection-end-line="170" selection-end-column="30" />
+            <state relative-caret-position="31">
+              <caret line="169" column="59" selection-start-line="169" selection-start-column="59" selection-end-line="169" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#initCasillas#0;class#Tablero#0" />
                 <element signature="method#initCasilla#0;class#Tablero#0" />
                 <element signature="method#setPlayersName#0;class#Tablero#0" />
-                <element signature="method#jugarPartida#0;class#Tablero#0" />
-                <element signature="e#3966#3967#0" expanded="true" />
-                <element signature="e#4018#4019#0" expanded="true" />
                 <element signature="method#llenarCasillasNormales#0;class#Tablero#0" />
                 <element signature="method#tirarDado#0;class#Tablero#0" />
               </folding>
@@ -71,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            <state relative-caret-position="493">
+              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
               <folding>
                 <element signature="e#581#582#0" expanded="true" />
                 <element signature="e#611#612#0" expanded="true" />
@@ -84,11 +80,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Oca.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="85">
               <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
               <folding>
                 <element signature="e#84#85#0" expanded="true" />
-                <element signature="e#102#103#0" expanded="true" />
+                <element signature="e#109#110#0" expanded="true" />
                 <element signature="e#146#147#0" expanded="true" />
                 <element signature="e#189#190#0" expanded="true" />
               </folding>
@@ -129,23 +125,23 @@
         <option value="$PROJECT_DIR$/src/CasillaType.java" />
         <option value="$PROJECT_DIR$/src/Model/Menu.java" />
         <option value="$PROJECT_DIR$/src/Model/Jugador.java" />
-        <option value="$PROJECT_DIR$/src/Model/Tablero.java" />
         <option value="$PROJECT_DIR$/src/Model/Casilla.java" />
         <option value="$PROJECT_DIR$/src/Oca.java" />
+        <option value="$PROJECT_DIR$/src/Model/Tablero.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,7 +164,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,10 +235,10 @@
     <option name="totallyTimeSpent" value="10478000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14563759" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07248322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -294,17 +290,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Jugador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding>
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Casilla.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -312,13 +297,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding>
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Oca.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="85">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
           <folding>
             <element signature="e#84#85#0" expanded="true" />
-            <element signature="e#102#103#0" expanded="true" />
+            <element signature="e#109#110#0" expanded="true" />
             <element signature="e#146#147#0" expanded="true" />
             <element signature="e#189#190#0" expanded="true" />
           </folding>
@@ -327,16 +323,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Tablero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="170" column="30" selection-start-line="170" selection-start-column="30" selection-end-line="170" selection-end-column="30" />
+        <state relative-caret-position="31">
+          <caret line="169" column="59" selection-start-line="169" selection-start-column="59" selection-end-line="169" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#initCasillas#0;class#Tablero#0" />
             <element signature="method#initCasilla#0;class#Tablero#0" />
             <element signature="method#setPlayersName#0;class#Tablero#0" />
-            <element signature="method#jugarPartida#0;class#Tablero#0" />
-            <element signature="e#3966#3967#0" expanded="true" />
-            <element signature="e#4018#4019#0" expanded="true" />
             <element signature="method#llenarCasillasNormales#0;class#Tablero#0" />
             <element signature="method#tirarDado#0;class#Tablero#0" />
           </folding>
