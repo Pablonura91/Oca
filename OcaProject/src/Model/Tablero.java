@@ -90,8 +90,8 @@ public class Tablero {
 
             //Comprueba que el jugador no tenga una espera para poder actuar
             if(!isEspera(jugadorActual)){
-                System.out.println("Escribe t para tirar dados");
-                String tirar = sc.nextLine();
+                //System.out.println("Escribe t para tirar dados");
+                //String tirar = sc.nextLine();
                 tirarDado();
                 checkCasilla(jugadorActual);
             } else {
