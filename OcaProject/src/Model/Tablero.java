@@ -19,24 +19,29 @@ public class Tablero {
     private int turno = 1;
 
 
-    public Tablero(){
+    public Tablero() {
         initCasillas();
         setPlayersNumber();
         setPlayersName();
 
         jugarPartida();
     }
+
     private void setPlayersNumber() {
         System.out.println("¿Cuantos jugadores habrá? (de 2 a 4 jugadores): ");
         do {
-            numJugadores = Integer.parseInt(sc.nextLine());
-            if (numJugadores > 4 || numJugadores < 0){
-                System.out.println("Recuerda que és de 2 a 4 jugadores!");
+            try {
+                numJugadores = Integer.parseInt(sc.nextLine());
+                if (numJugadores > 4 || numJugadores < 0) {
+                    System.out.println("Recuerda que és de 2 a 4 jugadores!");
+                }
+            } catch (NumberFormatException e){
+                System.out.println("Recuerda que és el numero de jugadores! "+ e.getLocalizedMessage());
             }
-        }while(numJugadores > 4 || numJugadores <=1);
+        } while (numJugadores > 4 || numJugadores <= 1);
     }
 
-    private void initCasillas(){
+    private void initCasillas() {
         int[] casillasOca = {5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59};
         int[] casillasPuente = {6, 12};
         int[] casillasPosada = {19};
@@ -59,7 +64,7 @@ public class Tablero {
         llenarCasillasNormales();
     }
 
-    private void initCasilla(int[] tipoCasilla, CasillaType tipo){
+    private void initCasilla(int[] tipoCasilla, CasillaType tipo) {
         Casilla casilla = new Casilla(tipo);
         for (int iterator : tipoCasilla) {
             arrCasillas[iterator] = casilla;
@@ -67,7 +72,7 @@ public class Tablero {
     }
 
     private void setPlayersName() {
-        for(int i=1; i <= numJugadores; i++){
+        for (int i = 1; i <= numJugadores; i++) {
             System.out.println("Escribe el nombre del jugador " + i + " :");
             String nombreJugador = sc.nextLine();
             if (nombreJugador.length() >= 3) {
@@ -83,36 +88,36 @@ public class Tablero {
 
     private void jugarPartida() {
         boolean endGame = false;
-        do{
+        do {
             Jugador jugadorActual = jugadorArrayList.get(turno - 1);
-            System.out.println("\n\n"+jugadorActual.getName());
-            System.out.println("Estas en la casilla numero "+ jugadorActual.getCasilla()+  " te toca tirar");
+
+            System.out.println("\n\n" + jugadorActual.getName());
+            System.out.println("Estas en la casilla numero " + jugadorActual.getCasilla() + " te toca tirar");
 
             //Comprueba que el jugador no tenga una espera para poder actuar
-            if(!isEspera(jugadorActual)){
+            if (!isEspera(jugadorActual)) {
                 //System.out.println("Escribe t para tirar dados");
                 //String tirar = sc.nextLine();
                 tirarDado();
                 checkCasilla(jugadorActual);
             } else {
-                System.out.println("Tienes que esperar: "+jugadorActual.getEspera()+" turno/s");
-                jugadorActual.setEspera(jugadorActual.getEspera()-1);
+                System.out.println("Tienes que esperar: " + jugadorActual.getEspera() + " turno/s");
+                jugadorActual.setEspera(jugadorActual.getEspera() - 1);
             }
-
-            if(arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(META)){
+            if (!arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(META)) {
+                if (!arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(OCA)) {
+                    if (turno == numJugadores) {
+                        turno = 1;
+                    } else {
+                        turno++;
+                    }
+                }
+            } else {
                 ganador = jugadorActual.getName();
                 endGame = true;
             }
 
-            if(!arrCasillas[jugadorActual.getCasilla()].getCasillaType().equals(OCA)){
-                if (turno == numJugadores){
-                    turno = 1;
-                } else {
-                    turno++;
-                }
-            }
-
-        }while(!endGame);
+        } while (!endGame);
 
         //Escribimos el numero del ultimo jugador
         System.out.println("El ganador de la oca es: " + ganador);
@@ -122,8 +127,8 @@ public class Tablero {
         return jugadorActual.getEspera() > 0;
     }
 
-    private void llenarCasillasNormales(){
-        for (int i = 0; i < arrCasillas.length - 1; i++){
+    private void llenarCasillasNormales() {
+        for (int i = 0; i < arrCasillas.length - 1; i++) {
             Casilla casilla = new Casilla(NORMAL);
             if (arrCasillas[i] == null) {
                 arrCasillas[i] = casilla;
@@ -131,19 +136,19 @@ public class Tablero {
         }
     }
 
-    private void tirarDado(){
+    private void tirarDado() {
         randomNumTirada = ThreadLocalRandom.current().nextInt(1, 6 + 1);
-        System.out.println("Numero de la tirada "+ randomNumTirada);
+        System.out.println("Numero de la tirada " + randomNumTirada);
     }
 
-    private void checkCasilla(Jugador jugadorActual){
+    private void checkCasilla(Jugador jugadorActual) {
         int tirada = jugadorActual.getCasilla() + randomNumTirada;
-        if (arrCasillas[tirada].getCasillaType().equals(META)){
-            tirada = 63 - (/*randomNumTirada - */(tirada - 63));
+        if (tirada > 63) {
+            tirada = 63 - ((tirada - 63));
         }
 
         CasillaType consequencia = arrCasillas[tirada].getCasillaType();
-        switch (consequencia){
+        switch (consequencia) {
             case POZO:
                 System.out.println("Has Caido en el Pozo!");
                 jugadorActual.setEspera(2);
@@ -153,7 +158,7 @@ public class Tablero {
                 break;
             case PUENTE:
                 System.out.println("Has Caido en el Puente!");
-                if(jugadorActual.getCasilla() == 6){
+                if (tirada == 6) {
                     System.out.println("Retrocedes hasta la casilla 6");
                     jugadorActual.setCasilla(12);
                 } else {
@@ -168,20 +173,23 @@ public class Tablero {
                 break;
             case OCA:
                 System.out.println("Has Caido en la Oca!");
-                if (tirada == 59){
-                    System.out.println("De Oca final has Ganado!");
-                    tirada = 63;
-                } else {
-                    //Comprueba la siguiente OCA
+
+                //Comprueba la siguiente OCA
+                try {
                     if (arrCasillas[tirada + 4].getCasillaType().equals(OCA)) {
                         System.out.println("Avanzas hasta la casilla " + (tirada + 4));
                         jugadorActual.setCasilla(tirada + 4);
-                    } else {
+                        System.out.println("De oca a oca, TIRO PORQUE ME TOCA\n");
+                    } else if (arrCasillas[tirada + 5].getCasillaType().equals(OCA)) {
                         System.out.println("Avanzas hasta la casilla " + (tirada + 5));
                         jugadorActual.setCasilla(tirada + 5);
+                        System.out.println("De oca a oca, TIRO PORQUE ME TOCA\n");
                     }
-                    System.out.println("De oca a oca, TIRO PORQUE ME TOCA\n");
+                } catch (java.lang.ArrayIndexOutOfBoundsException ex){
+                    System.out.println("De Oca final has Ganado!");
+                    jugadorActual.setCasilla(63);
                 }
+
                 break;
             case MUERTE:
                 System.out.println("Has Caido en la Muerte!");
