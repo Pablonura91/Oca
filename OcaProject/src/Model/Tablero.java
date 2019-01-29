@@ -198,8 +198,8 @@ public class Tablero {
                 break;
             case POSADA:
                 System.out.println("Has Caido en la Posada!");
-                System.out.println("Te toca esperar 2 turnos");
                 System.out.println("Avanzas hasta la casilla " + tirada);
+                System.out.println("Te toca esperar 2 turnos");
                 jugadorActual.setEspera(2);
                 jugadorActual.setCasilla(tirada);
                 break;
